@@ -2,12 +2,11 @@ package service
 
 import (
     "net/http"
-	"fmt"
 )
 
-func unknown() http.HandlerFunc {
+func unknownHandler() http.HandlerFunc {
 
     return func(w http.ResponseWriter, req *http.Request) {
-        fmt.Fprintf(w, "501")
+        http.Error(w, "501 page not implemented",501)
     }
 }

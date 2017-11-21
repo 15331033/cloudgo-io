@@ -5,6 +5,8 @@ import (
 
     "cloudgo-io/service"
     flag "github.com/spf13/pflag"
+    //"github.com/phyber/negroni-gzip/gzip"
+
 )
 
 const (
@@ -24,5 +26,6 @@ func main() {
     }
 
     server := service.NewServer()
+    //server.Use(gzip.Gzip(gzip.DefaultCompression))
     server.Run(":" + port)
 }

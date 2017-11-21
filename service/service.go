@@ -44,7 +44,16 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/templates", homeHandler(formatter)).Methods("GET")
 	mx.HandleFunc("/login", loginHandler(formatter)).Methods("GET")
 	mx.HandleFunc("/login", tableHandler(formatter)).Methods("POST")
-	mx.HandleFunc("/unknown", unknown()).Methods("GET")
-	mx.PathPrefix("/").Handler(http.FileServer(http.Dir(webRoot + "/assets/")))
-	
+	//mx.HandleFunc("/unknown", unknown()).Methods("GET")
+    mx.NotFoundHandler = unknownHandler()
+	//mx.PathPrefix("/").Handler(http.FileServer(http.Dir(webRoot + "/assets/")))
+}
+
+func loginH(w http.ResponseWriter, req *http.Request) {
+    formatter := render.New(render.Options{
+		Directory:  "templates",
+        Extensions: []string{".html"},
+        IndentJSON: true,
+    })
+    formatter.HTML(w, http.StatusOK, "login", struct {}{})
 }
