@@ -48,12 +48,3 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
     mx.NotFoundHandler = unknownHandler()
 	//mx.PathPrefix("/").Handler(http.FileServer(http.Dir(webRoot + "/assets/")))
 }
-
-func loginH(w http.ResponseWriter, req *http.Request) {
-    formatter := render.New(render.Options{
-		Directory:  "templates",
-        Extensions: []string{".html"},
-        IndentJSON: true,
-    })
-    formatter.HTML(w, http.StatusOK, "login", struct {}{})
-}

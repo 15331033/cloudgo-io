@@ -57,6 +57,8 @@ js: </br>
 ![Alt text](./pic/1511104054098.png) </br>
 ![Alt text](./pic/1511104069173.png) </br>
 5.对/unknown给出开发中的提示,返回码5xx
+![Alt text](./pic/1511277581077.png) </br>
+![Alt text](./pic/1511277629852.png) </br>
 网页显示: </br>
 ![Alt text](./pic/1511104148748.png)
 
